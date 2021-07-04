@@ -1,0 +1,15 @@
+<div class="galleryContainer" [ngClass]="{fullScreen: isFullscreen$ | async}">
+
+    <div class="arrowLeft galleryArrow" (click)="slides.arrow('prev', $event)"></div>
+    <div class="arrowRight galleryArrow" (click)="slides.arrow('next', $event)"></div>
+
+    <div #gallery id="gallery" class="gallery" (touchstart)="swipe.start($event)" (touchend)="swipe.end($event)" (touchmove)="swipe.move($event)">
+        <div #slider class="slider clear">
+            <div #slidePrePrev class="slide" (click)="actions.fullscreen('toggle', 'slidePrePrev')"></div>
+            <div #slidePrev class="slide" (click)="actions.fullscreen('toggle', 'slidePrev')"></div>
+            <div #slideMain class="slide active" (click)="actions.fullscreen('toggle', 'slideMain')"></div>
+            <div #slideNext class="slide" (click)="actions.fullscreen('toggle', 'slideNext')"></div>
+            <div #slideNextNext class="slide" (click)="actions.fullscreen('toggle', 'slideNextNext')"></div>
+        </div>
+    </div>
+</div>
